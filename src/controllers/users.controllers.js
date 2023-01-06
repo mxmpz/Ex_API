@@ -45,6 +45,7 @@ const getUserByID = async (id) => {
   return userObject
 }
 
+// Permet de supprimer un utilisateur grâce à son id
 const deleteUserById = async (id) => {
   if (!id) {
     throw new Error('Missing ID')

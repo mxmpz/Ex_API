@@ -33,6 +33,7 @@ router.route('/:id')
     }
   })
 
+  // Création de la route pour la fonction deleteUserById
   .delete(async (req, res) => {
     try {
       await deleteUserById(req.params.id)
