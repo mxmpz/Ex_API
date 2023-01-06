@@ -19,6 +19,8 @@ app.use(express.json())
 app.use('/users', require('./routes/users'))
 app.use('/users/{id}', require('./routes/users'))
 
+app.use('/restaurants', require('./routes/restaurants'))
+
 // On teste l'utilisataion de Express
 app.get('/', (req, res) => {
   res.send('Ok')

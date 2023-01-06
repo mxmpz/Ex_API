@@ -7,7 +7,6 @@ const getUsers = async () => {
 }
 
 const createUser = async (user) => {
-  console.log(user)
   // On vérifie si l'utilisateur à un email et un mot de passe
   if (!user.email || !user.password) {
     // Si l'une des deux infos est manquante on relève une erreur

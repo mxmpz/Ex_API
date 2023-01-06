@@ -5,7 +5,7 @@ const { Schema } = mongoose
 const imageSchema = require('./Image')
 
 // Création du schéma pour l'adresse d'un restaurant
-const adresseSchema = new Schema({
+const adressSchema = new Schema({
   street: {
     type: String
   },
@@ -25,7 +25,7 @@ const adresseSchema = new Schema({
 
 // Création du schéma d'un restaurant
 const restaurantSchema = new Schema({
-  nom: {
+  name: {
     type: String
   },
   description: {
@@ -33,18 +33,15 @@ const restaurantSchema = new Schema({
   },
 
   // Utilistaion du schéma adresse
-  adresse: {
-    type: adresseSchema,
+  adress: {
+    type: adressSchema,
     default: {}
   },
 
   // Utilistaion du schéma image
-  photo: {
+  picture: {
     type: imageSchema,
     default: {}
-  },
-  prix: {
-    type: String
   },
 
   // Un restaurant propose plusieurs plats, donc on crée un tableau listant les différents plats

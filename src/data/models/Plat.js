@@ -12,16 +12,13 @@ const platSchema = new Schema({
   description: {
     type: String
   },
-  adresse: {
-    type: String
-  },
 
   // Utilistaion du schéma image
-  photo: {
+  picture: {
     type: imageSchema,
     default: {}
   },
-  prix: {
+  price: {
     type: String
   },
 
