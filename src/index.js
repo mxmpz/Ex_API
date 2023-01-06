@@ -17,6 +17,7 @@ app.use(express.json())
 
 // On déclare les routes renseignés dans le dossier user
 app.use('/users', require('./routes/users'))
+app.use('/users/{id}', require('./routes/users'))
 
 // On teste l'utilisataion de Express
 app.get('/', (req, res) => {

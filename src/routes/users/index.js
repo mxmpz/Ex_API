@@ -1,4 +1,4 @@
-const { getUsers, createUser } = require('../../controllers/users.controllers')
+const { getUsers, createUser, getUserByID } = require('../../controllers/users.controllers')
 const router = require('express').Router()
 
 // Route ne nécessitant aucune info dans l'URL
@@ -19,6 +19,13 @@ router.route('/')
       console.error(error)
       return res.status(500).send(error)
     }
+  })
+
+router.route('/:id')
+  // Création de la route pour la fonction getUsersByID
+  .get(async (req, res) => {
+    const user = await getUserByID(req.params.id)
+    return res.send(user)
   })
 
 // Exports des routes
