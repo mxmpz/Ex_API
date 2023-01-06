@@ -11,6 +11,9 @@ const port = 5000
 const connect = require('./data/helpers/db')
 connect()
 
+// On déclare les routes renseignés dans le dossier user
+app.use('/users', require('./routes/users'))
+
 // On teste l'utilisataion de Express
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
