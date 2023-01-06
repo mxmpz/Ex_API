@@ -36,12 +36,27 @@ const createUser = async (user) => {
 }
 
 // Permet de lister tout un utilisateur grâce à son id
-const getUserByID = async (id) => {
+const getUserById = async (id) => {
   if (!id) {
     throw new Error('Missing ID')
   }
   const user = await User.findById(id).select('-password')
   const userObject = user.toObject()
+  return userObject
+}
+
+// Permet de mettre à jour un utilisateur grâce à son id
+const updateUserById = async (id, user) => {
+  // Verification présence ID
+  if (!id) {
+    throw new Error('Missing ID')
+  }
+  // Verification présence user
+  if (!user) {
+    throw new Error('Missing user')
+  }
+  const userUp = await User.findByIdAndUpdate(id, user, { new: true }).select('-password')
+  const userObject = userUp.toObject()
   return userObject
 }
 
@@ -57,6 +72,7 @@ const deleteUserById = async (id) => {
 module.exports = {
   getUsers,
   createUser,
-  getUserByID,
-  deleteUserById
+  getUserById,
+  deleteUserById,
+  updateUserById
 }

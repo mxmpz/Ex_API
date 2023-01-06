@@ -1,4 +1,4 @@
-const { getUsers, createUser, getUserByID, deleteUserById } = require('../../controllers/users.controllers')
+const { getUsers, createUser, getUserById, deleteUserById, updateUserById } = require('../../controllers/users.controllers')
 const router = require('express').Router()
 
 // Route ne nécessitant aucune info dans l'URL
@@ -25,7 +25,18 @@ router.route('/:id')
   // Création de la route pour la fonction getUsersByID
   .get(async (req, res) => {
     try {
-      const user = await getUserByID(req.params.id)
+      const user = await getUserById(req.params.id)
+      return res.send(user)
+    } catch (error) {
+      console.error(error)
+      return res.status(500).send(error)
+    }
+  })
+
+  // Création de la route pour la fonction updateUserById
+  .patch(async (req, res) => {
+    try {
+      const user = await updateUserById(req.params.id, req.body)
       return res.send(user)
     } catch (error) {
       console.error(error)
