@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
+const imageSchema = require('./Image')
 
 const adresseSchema = new Schema({
   street: {
@@ -31,7 +32,8 @@ const restaurantSchema = new Schema({
     default: {}
   },
   photo: {
-    type: String
+    type: imageSchema,
+    default: {}
   },
   prix: {
     type: String

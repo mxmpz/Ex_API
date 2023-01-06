@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
+const imageSchema = require('./Image')
 
 const platSchema = new Schema({
   titre: {
@@ -12,7 +13,8 @@ const platSchema = new Schema({
     type: String
   },
   photo: {
-    type: String
+    type: imageSchema,
+    default: {}
   },
   prix: {
     type: String
