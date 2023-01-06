@@ -45,9 +45,17 @@ const getUserByID = async (id) => {
   return userObject
 }
 
+const deleteUserById = async (id) => {
+  if (!id) {
+    throw new Error('Missing ID')
+  }
+  await User.findByIdAndDelete(id)
+}
+
 // Exports des fonctions nécessaires
 module.exports = {
   getUsers,
   createUser,
-  getUserByID
+  getUserByID,
+  deleteUserById
 }
