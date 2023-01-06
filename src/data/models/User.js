@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
+// Création du schéma d'un utilisateur
 const userSchema = new Schema({
   firstName: {
     type: String
@@ -23,4 +24,5 @@ const userSchema = new Schema({
   }
 }, { timestamps: true })
 
+// Export du model utilisateur
 module.exports = mongoose.models.User || mongoose.model('User', userSchema)

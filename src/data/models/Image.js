@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
+// Création du schéma d'une image
 const imageSchema = new Schema({
   fileName: {
     type: String
@@ -22,4 +23,5 @@ const imageSchema = new Schema({
   }
 }, { timestamps: true })
 
+// Export du shéma seulement
 module.exports = imageSchema
