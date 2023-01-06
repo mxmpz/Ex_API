@@ -1,6 +1,24 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
+const adresseSchema = new Schema({
+  street: {
+    type: String
+  },
+  number: {
+    type: Number
+  },
+  postcode: {
+    type: Number
+  },
+  city: {
+    type: String
+  },
+  country: {
+    type: String
+  }
+}, { timestamps: true })
+
 const restaurantSchema = new Schema({
   nom: {
     type: String
@@ -9,7 +27,8 @@ const restaurantSchema = new Schema({
     type: String
   },
   adresse: {
-    type: String
+    type: adresseSchema,
+    default: {}
   },
   photo: {
     type: String
